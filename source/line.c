@@ -1,9 +1,13 @@
+#include "types.h"
+#include "memory.h"
+#include "graphics.h"
+
 int main () {
-    *(unsigned int*)0x04000000 = 0x0403;
+    REG_DISPCNT = DCNT_MODE3 | DCNT_BG2;
     
     unsigned short x;
-    for(x = 0; x < 240; x++){
-        ((unsigned short*)0x06000000)[x+80*240] = x << 10;
+    for(x = 0; x < SCREEN_WIDTH; x++){
+        m3_plot(x, SCREEN_HEIGHT >> 1, x << 10);
     };
 
     return 0;
