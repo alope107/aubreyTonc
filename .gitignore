@@ -57,3 +57,5 @@ build/
 *.sav
 
 .vscode
+
+scratch
